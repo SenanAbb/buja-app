@@ -13,6 +13,7 @@ import {
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/theme-toggle'
 import {
   Sidebar,
   SidebarContent,
@@ -153,19 +154,22 @@ export function AppSidebar({ profile }: AppSidebarProps) {
               {profile?.is_admin ? 'Administrador' : 'Usuario'}
             </span>
           </div>
-          <form action={signOut}>
-            <Button
-              type="submit"
-              variant="ghost"
-              size="icon"
-              className={cn(
-                'h-8 w-8 text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent',
-              )}
-            >
-              <LogOut className="h-4 w-4" />
-              <span className="sr-only">Cerrar sesión</span>
-            </Button>
-          </form>
+          <div className="flex items-center gap-1">
+            <ThemeToggle />
+            <form action={signOut}>
+              <Button
+                type="submit"
+                variant="ghost"
+                size="icon"
+                className={cn(
+                  'h-8 w-8 text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent',
+                )}
+              >
+                <LogOut className="h-4 w-4" />
+                <span className="sr-only">Cerrar sesión</span>
+              </Button>
+            </form>
+          </div>
         </div>
       </SidebarFooter>
     </Sidebar>
